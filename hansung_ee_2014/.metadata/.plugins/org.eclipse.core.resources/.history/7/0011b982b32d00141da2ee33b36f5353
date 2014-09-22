@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	/*
+	 * 대상 : 
+	 * 기능 : 
+	 * 함수 : 
+	 */
+	function run() {
+		$(" input").attr("checked", "false");
+	}
+</script>
+</head>
+<body>
+<div class="target" style="color: rgb(102, 102, 102);
+		 width: 300px; height: 400px;
+		  border: 1px solid rgb(170, 170, 170);
+		   background-color: rgb(255, 240, 245);
+		    margin: 10px; padding: 5px;">div.target<br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+</div>
+<input type="button" value="run" onclick="run()" />
+</body>
+</html>

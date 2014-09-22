@@ -1,0 +1,8 @@
+function show_Status(){
+	if (request.readyState == 4) {
+		if (request.status == 200) {       	
+			var contentPane = document.getElementById("comment");
+			contentPane.innerHTML = request.responseText;	 
+		}
+	}
+}

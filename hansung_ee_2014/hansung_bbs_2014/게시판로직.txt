@@ -1,0 +1,28 @@
+1(). 프로젝트 생성 - hansung_bbs_2014 
+2(). 서블릿 생성 - BBSServlet
+3(). web.xml에 서블릿 설정 -> 외부파일 설정(BBS.properties)
+4(). interface 생성 - BBSService, BBSImpl
+5(). DB와 작업을 위한 Dao 클래스 작성 BBSDaoService(interface) - BBSDao(class)
+
+6(). DB설계 - sql문
+<-- sequence 생성 -->
+create sequence bbs_seq start with 1 increment by 1
+
+<-- table 생성 -->
+create table bbs(
+article_num number primary key,
+id varchar2(200) not null,
+title varchar2(200) not null,
+content clob not null,
+depth number not null,
+pos number not null,
+group_id number not null,
+hit number not null,
+write_date date not null,
+fname varchar2(200))
+
+7(). DBDTO 생성
+
+8(). 게시판 algorithm
+article_num / depth / pos 		/ group_id
+	게시번호	  /  너비	/ 댓글번호	/ 해당게시글 그룹번호

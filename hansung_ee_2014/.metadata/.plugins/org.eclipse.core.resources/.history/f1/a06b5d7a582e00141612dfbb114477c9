@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주민번호 인증</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+// 		$("#jumin1").keyup(function(){
+			
+// 			if($("#jumin1").val().length >= 6){
+				
+// 				$("#jumin2").focus();
+// 			}
+// 		});
+		
+		$("input[name=jumin1]").keyup(function(){
+			
+			if($("#input[name=jumin1]").val().length >= 6){
+				
+				$("#input[name=jumin2]").focus();
+			}
+		});
+	});
+
+</script>
+</head>
+<body>
+	주민번호 :
+	<input type="text" id="jumin1" name="jumin1" maxlength="6" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"/>
+	- <input type="text" id="jumin2" name="jumin2" maxlength="7" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"/>
+</body>
+</html>

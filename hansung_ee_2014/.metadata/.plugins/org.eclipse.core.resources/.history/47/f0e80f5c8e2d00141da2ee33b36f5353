@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>hansung_bbs_2014_jquery</display-name>
+	<welcome-file-list>
+		<welcome-file>hansung.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>bbs_hansung</servlet-name>
+		<servlet-class>hansung.ac.kr.j2ee.bbs.BBS_Servlet</servlet-class>
+		<init-param>
+			<param-name>bbs_servlet</param-name>
+			<param-value>D:\hansung_ee_2014\hansung_bbs_2014_jquery\WebContent\BBS.properties</param-value>
+		</init-param>
+		<multipart-config>
+		<location>d:\temp</location>
+		<max-file-size>-1</max-file-size>
+		<max-request-size>-1</max-request-size>
+		<file-size-threshold>1024</file-size-threshold>
+		</multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bbs_hansung</servlet-name>
+		<url-pattern>*.bbs</url-pattern>
+	</servlet-mapping>
+</web-app>

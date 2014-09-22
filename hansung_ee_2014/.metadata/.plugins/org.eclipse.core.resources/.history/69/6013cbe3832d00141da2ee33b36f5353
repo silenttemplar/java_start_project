@@ -1,0 +1,34 @@
+$(document).ready(function(){
+	$("#comment_read").click(function(){
+		$.ajax({
+			type : "POST",
+			url:"/hansung_bbs_2014_jquery/commentRead.bbs",
+			async : true,
+			dataType : "json",
+			data:{				
+				article_num:$('#article_num').val()
+			},
+			success : function(data) {		
+				var html = '<table border="1">'; 
+	    		$.each(data,function(entryIndex, entry){		   	     
+		    	    html += '<tr>';
+		            html += '<td>' + entry.comment_num + '</td>';
+		            html += '<td>' + entry.id + '</td>';
+		            html += '<td>' + entry.comment_content + '</td>';
+		            html += '<td>' + entry.comment_write_date + '</td>';
+		            html += '<td>' + entry.article_num + '</td>';		               	        
+		            html += '</tr>';    
+	    		});	    		
+	    		html += '</table>';	    		
+				$("#comments").html(html);
+			},
+			error : function(xhr) {
+				alert("error html = " + xhr.statusText);
+			}			
+		}); 
+	});
+	
+	$("#comment_write").click(function(){
+		alert("클릭되네요!");
+	});
+});

@@ -1,0 +1,134 @@
+function createRequest() {
+	  try {
+	    request = new XMLHttpRequest();
+	  }catch (tryMS) {
+		  try {
+			  request = new ActiveXObject("Msxml2.XMLHTTP");
+		  } catch (otherMS) {
+			  try {
+				  request = new ActiveXObject("Microsoft.XMLHTTP");
+			  } catch (failed) {
+				  request = null;
+			  }
+		  }
+	  }	
+	  return request;
+}
+
+function test(){	  
+	  request = createRequest();	 
+	  if (request == null)
+	    alert("Unable to create request");
+	  else {	    
+	    var url= "json_result.jsp";	    
+	    request.onreadystatechange = showID;	   
+	    request.open("GET", url, true);
+	    
+	    request.send(null);	   
+	  }
+}
+
+function showID() {	
+  if (request.readyState == 4) {
+   if (request.status == 200) { 	   
+	   var json = request.responseText;
+	   alert(json);
+       var json_parse= JSON.parse(json);
+       document.getElementById("content").innerHTML = json_parse.pass;	    
+   }
+  }  
+}
+
+function test1(){	  
+	  request = createRequest();
+	  if (request == null)
+	    alert("Unable to create request");
+	  else {	    
+	    var url= "json_result1.jsp";	    
+	    request.onreadystatechange = showIDS;	   
+	    request.open("GET", url, true);
+	    request.send(null);	   
+	  }
+}
+
+function showIDS() {
+	var ids="";
+  if (request.readyState == 4) {
+   if (request.status == 200) { 	  
+       var json = request.responseText;    	
+       var json_eval=JSON.parse(json); 
+       var json_hm=json_eval.ids;      
+      for(var i=0;i<json_hm.length;i++){
+    	 var ids=ids+json_hm[i]+" ";
+      }
+      document.getElementById("content").innerHTML=ids;
+   }
+  }  
+}
+
+function test2(){	  
+	  request = createRequest();
+	  if (request == null)
+	    alert("Unable to create request");
+	  else {	    
+	    var url= "json_vo_result.jsp";	    
+	    request.onreadystatechange = showPrivate;	   
+	    request.open("GET", url, true);
+	    request.send(null);	   
+	  }
+}
+
+function showPrivate() {	
+	if (request.readyState == 4) {
+	 if (request.status == 200) { 
+		 alert(request.responseText);
+	     var json = request.responseText;    	
+	     var jsonVO=JSON.parse(json);     
+	     var content="<table border='1'>";
+	     content += "<tr> <td>"+jsonVO.id+"</td>";
+	     content += "<td>"+jsonVO.pass+"</td></tr></table>";
+	    
+	    document.getElementById("content").innerHTML=content;
+	 }
+	}  
+}
+
+function test3(){	  
+	  request = createRequest();
+	  if (request == null)
+	    alert("Unable to create request");
+	  else {	    
+	    var url= "json_vo_all_result.jsp";	    
+	    request.onreadystatechange = showAll;	   
+	    request.open("GET", url, true);
+	    request.send(null);	   
+	  }
+}
+function showAll() {	
+ if (request.readyState == 4) {
+	if (request.status == 200) { 
+		alert(request.responseText);
+		var json = request.responseText;    	
+		var all=JSON.parse(json); 		
+		var content="<table border='1'>";
+		for(var i=0;i<all.length;i++){
+			content += "<tr> <td>"+all[i].id+"</td>";
+			content += "<td>"+all[i].pass+"</td></tr>";
+		}
+		content+="</table>"; 
+		document.getElementById("content").innerHTML=content;
+	}
+ }  
+}
+
+
+
+
+
+
+
+
+
+
+
+

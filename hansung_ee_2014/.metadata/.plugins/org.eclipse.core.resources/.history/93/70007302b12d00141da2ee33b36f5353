@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Disable Button</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	/*
+	 * 대상 : 2번째 div (index number : 1)
+	 * 기능 : background 변경
+	 * 함수 : eq(), css()
+	 */
+	function run() {
+		//$("div").eq(1).css("background","yellow");
+		$(".target").eq(1).css("background","yellow");
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+package AJAX;
+
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Human.OracleDao;
+
+public class TextImpl implements BBSInter{
+	ResultSet rs;
+	StringBuffer sb;
+	
+	OracleDao oracleDao;
+	
+	public void human(HttpServletRequest request, HttpServletResponse response) {
+		response.setContentType("text/xml;charset=utf-8");		
+	
+		try{
+			oracleDao = OracleDao.getInstance();
+			rs = oracleDao.getStudentList();
+			sb=new StringBuffer();
+			sb.append("<?xml version='1.0' encoding='utf-8' ?>\n");
+			sb.append("<human>\n");
+					
+			while(rs.next()){			
+				sb.append("<Member>\n");
+				sb.append("<id>"+rs.getString("id")+"</id>\n");
+				sb.append("<pass>"+rs.getString("pw")+"</pass>\n");
+				sb.append("</Member>\n");
+			}
+			sb.append("</human>");
+			oracleDao.closeConnection();
+			
+			PrintWriter pw= response.getWriter();
+			pw.println(sb.toString());
+			
+		
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

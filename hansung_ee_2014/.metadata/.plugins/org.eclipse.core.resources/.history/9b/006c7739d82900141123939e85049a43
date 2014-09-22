@@ -1,0 +1,54 @@
+package Human;
+
+import java.sql.*;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.dom.DOMSource;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Text;
+
+public class Get_Transform {
+	ResultSet rs;
+	StringBuffer sb;
+	
+	OracleDao oracleDao;
+	DOMSource domSource;
+	
+	public DOMSource getXml(){
+		try{
+			oracleDao = OracleDao.getInstance();
+			rs = oracleDao.getStudentList();
+			
+			ResultSetMetaData rsMeta = rs.getMetaData();
+			int columnCount = rsMeta.getColumnCount();	
+		
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();		
+			DocumentBuilder dBuilder = factory.newDocumentBuilder();
+			Document document = dBuilder.newDocument();		
+			Element rootElement = document.createElement("XMLTEST");
+			document.appendChild(rootElement);
+			
+			while(rs.next()){			
+				Element memberElement = document.createElement("Member");
+				rootElement.appendChild(memberElement);			
+				for(int i = 1 ; i <= columnCount ; i++) {
+					Element element = document.createElement(rsMeta.getColumnName(i));
+					Text text = document.createTextNode(rs.getString(i));
+					element.appendChild(text);
+					memberElement.appendChild(element);				
+				}			
+			}
+			oracleDao.closeConnection();
+			domSource = new DOMSource(document);		
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return domSource;
+   }
+	
+
+}

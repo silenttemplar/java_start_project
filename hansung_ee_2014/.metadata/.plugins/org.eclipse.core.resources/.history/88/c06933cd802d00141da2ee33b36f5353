@@ -1,0 +1,83 @@
+	$(document).ready(function(){
+		$("#comment_read").click(function(){
+			$.ajax({
+				type : "POST",
+				async : true,
+				dataType : "json",
+				data:{
+					article_num:$('#article_num').val()
+				},
+				success:function(data){
+					var html = '<table border="1">'; 
+		    		$.each(data,function(entryIndex, entry){		   	     
+			    	    html += '<tr>';
+			            html += '<td>' + entry.comment_num + '</td>';
+			            html += '<td>' + entry.id + '</td>';
+			            html += '<td>' + entry.comment_content + '</td>';
+			            html += '<td>' + entry.commentWrite_date + '</td>';
+			            html += '<td>' + entry.article_num + '</td>';		               	        
+			            html += '</tr>';    
+		    		});	    		
+		    		html += '</table>';	    		
+					$("#comments").html(html);
+				},
+				error:function(xhr){
+					
+				}
+			});
+		});
+		
+		$("#comment_write").click(function(){
+			request = createRequest();
+			
+			if (request == null){
+				alert("Unable to create request");		  
+			}else{
+				var comment_content = document.getElementById("comment_content").value;
+				var url= "commentWrite.bbs?article_num="+${content.article_num}
+							+"&comment_content="+comment_content;
+							
+				request.onreadystatechange = showComment;	
+				request.open("GET", url, true);
+				request.send(null); 
+			}
+		});
+	});
+
+function showComment(){		  
+	if (request.readyState == 4) {
+		   if (request.status == 200) { 
+			   var json = request.responseText; 	  
+		       var json_parse= JSON.parse(json);
+		       if(json_parse.length==0){
+		    	   alert("comment가없습니다");
+		       }
+		       var content="<table border='1'>";
+				for(var i=0;i<json_parse.length;i++){
+					content += "<tr> <td>"+json_parse[i].comment_num+"</td>";
+					content += "<td>"+json_parse[i].id+"</td>";
+					content += "<td>"+json_parse[i].comment_content+"</td>";
+					content += "<td>"+json_parse[i].comment_write_date+"</td>";
+					content += "<td>"+json_parse[i].article_num+"</td></tr>";
+				}
+				content+="</table>";		       
+			document.getElementById("comments").innerHTML = content;
+			}
+	}	  
+}
+function createRequest() {
+	try {
+			request = new XMLHttpRequest();
+	} catch (tryMS) {
+		try {
+			request = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (otherMS) {
+			try {
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (failed) {
+				request = null;
+			}
+		}
+	}
+	return request;
+}

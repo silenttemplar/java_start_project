@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일첨부 동적생성 삭제</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+});
+function fnAddFile(event){
+	console.log("fnAddFile(event) 실행");
+	var insertTag= "<input type=\"file\" name=\"file\" /><br/>"
+	
+	$(insertTag).appendTo("body");
+}
+function fnDelFile(event){
+	if($("input[name=file]").size() > 1){
+		$("input[name=file]").last().remove();
+		$("br").last().remove();
+	}
+	
+}
+</script>
+</head>
+<body>
+	<input type="file" name="file" />
+	<a href="#" id="addFile" onclick="fnAddFile(event)">파일 추가</a>
+	<a href="#" id="delFile" onclick="fnDelFile(event)">파일 삭제</a><br>
+</body>
+</html>

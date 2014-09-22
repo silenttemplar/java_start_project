@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.js"></script>
+<script src="js/human.js"></script>
+<script type="text/javascript">
+
+	$().ready(function(){
+
+	var url = "http://localhost:8090/first/getJSON.jsp";
+	
+	var data = {name:"박뽕"};
+	
+	var myAjax = MyFn.getAjax(url, data);
+	
+	myAjax.done(
+			function(data){
+				console.log(data);
+				
+			});
+	
+	myAjax.fail(
+			function(a,b,c){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			
+				
+			});
+	
+	});
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

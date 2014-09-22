@@ -1,0 +1,5 @@
+package hansung.ac.kr.j2ee.bbs;
+
+public class CommentDTO {
+
+}

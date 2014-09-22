@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Disable Button</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	/*
+	 * 대상 : div 내부 button
+	 * 기능 : button 속성 disabled로 변경
+	 * 함수 : attr()
+	 */
+	function run() {
+		$("div > button").attr("disabled","disabled");
+	}
+</script>
+</head>
+<body>
+<div class="target" style="color: rgb(102, 102, 102);
+		 width: 180px; height: 40px;
+		  border: 1px solid rgb(170, 170, 170);
+		   background-color: rgb(255, 240, 245);
+		    margin: 10px; padding: 5px;">div.target<br>
+	<button data-role="none">button</button>
+</div>
+<input type="button" value="run" onclick="run()" />
+</body>
+</html>

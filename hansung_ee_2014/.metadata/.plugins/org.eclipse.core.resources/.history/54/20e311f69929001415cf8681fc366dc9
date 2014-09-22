@@ -1,0 +1,54 @@
+package hansung.ac.kr.j2ee.bbs;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class DownLoadImpl implements BBS_Service {
+	
+	@Override
+	public String BBS_hansung(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException {
+		String fileName = null;
+		String realFolder="d:/upload/";
+		
+		File file = new File(realFolder+req.getParameter("fname"));
+		
+		resp.setContentType("appliction/download");
+		resp.setContentLength((int)file.length());
+		
+		String userAgent = req.getHeader("User-Agent");
+		boolean ie = userAgent.indexOf("MSIE") > -1;
+		
+		if(ie){
+			fileName = URLEncoder.encode(file.getName(), "utf-8").replace("+", "%20");
+		}else{
+			fileName = new String(file.getName().getBytes("utf-8"), "iso-8859-1").replace("+", "%20");
+		}
+		
+		resp.setHeader("Content-Dispositon", "attachment; filename=\""+fileName+"\";");
+		OutputStream out = resp.getOutputStream();
+		FileInputStream fis = null;
+		
+		int temp;
+		fis = new FileInputStream(realFolder+fileName);
+		
+		while((temp = fis.read()) != -1){
+			out.write(temp);
+		}
+		
+		if(fis != null){
+			fis.close();
+		}
+
+		return null;
+	}
+
+}

@@ -1,0 +1,47 @@
+package hansung.ac.kr.j2ee.bbs;
+
+import hansung.ac.kr.j2ee.bbs.db.BBS_OracleDao;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class CommentWriteImpl implements BBS_Service {
+	
+	BBS_OracleDao oracleDao;
+	CommentDTO comment;
+	HttpSession hs;
+
+	@Override
+	public String BBS_hansung(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException {
+		
+		System.out.println("CommentWriteImpl 실행");
+		
+		oracleDao = BBS_OracleDao.getInstance();
+		comment = new CommentDTO();
+		hs = req.getSession();
+		
+		
+		comment.setArticle_num(Integer.parseInt(req.getParameter("article_num")));
+		comment.setComment_content(req.getParameter("comment_content"));
+		comment.setId(hs.getAttribute("id").toString());
+		
+		System.out.println(req.getParameter("article_num")+", "+req.getParameter("comment_content")
+				+", "+hs.getAttribute("id").toString());
+		
+		
+//		oracleDao.insertComment(comment);
+		
+		return null;
+	}
+
+}

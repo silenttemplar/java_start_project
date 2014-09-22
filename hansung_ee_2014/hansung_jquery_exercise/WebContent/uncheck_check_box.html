@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	/*
+	 * 대상 :  div 내부 checkbox
+	 * 기능 :  체크해제
+	 * 함수 :  removeAttr(), attr()
+	 */
+	function run() {
+//		$("input:checked").attr("checked", false);
+//		$("input:checked").removeAttr("checked");
+//		$("input[type=checkbox]").attr("checked", false);
+			$("input[type=checkbox]").removeAttr("checked");
+	}
+</script>
+</head>
+<body>
+<div class="target" style="color: rgb(102, 102, 102);
+		 width: 300px; height: 160px;
+		  border: 1px solid rgb(170, 170, 170);
+		   background-color: rgb(255, 240, 245);
+		    margin: 10px; padding: 5px;">div.target<br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+	      <label><input type="checkbox" checked="checked"
+	         data-role="none">uncheck us!</label><br>
+</div>
+<input type="button" value="run" onclick="run()" />
+</body>
+</html>

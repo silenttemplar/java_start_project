@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업 생성</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	function run(){
+		var tt = window.open("./pop.html", "popup", "width=400 height=400");
+		tt.moveTo(200,200);
+	}
+	function appendTag(html) {
+	    alert(html);
+		$("#id").val(html);
+	}
+</script>
+</head>
+<body>
+	<div id="target">
+		<input type="text" id="id"/>
+	</div>
+	
+	<br>
+	<input type="button" value="run" onclick="run()" />
+</body>
+</html>

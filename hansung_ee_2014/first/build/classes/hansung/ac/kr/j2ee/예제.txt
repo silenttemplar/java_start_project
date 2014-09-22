@@ -1,0 +1,9 @@
+1. 브라우저 주소창에 ~/join.hansung
+2. 1번 요청을 처리하는 클래스 작성(join.jsp를 리터함)
+3. join.jsp는 회원가입임..두개만 있음됨...id, pass
+  - 디자인은 각자 알아서 하기
+4. join.jsp에서 확인 버튼을 클릭하면 /joinConfirm.hansung 요청
+5. 4번을 처리할 클래스 작성
+  - 입력받은 id와 pass를 디비에 입력
+  - joinConfirm.jsp를 리턴
+6.joinConfirm.jsp는 회원가입한 회원의 정보출력

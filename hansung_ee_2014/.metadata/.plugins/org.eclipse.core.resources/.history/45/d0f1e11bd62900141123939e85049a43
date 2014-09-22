@@ -1,0 +1,16 @@
+package Human;
+
+import java.sql.Connection;
+
+public class OracleDao {
+	Connection conn;
+	static OracleDao obj = new OracleDao();
+	
+	private OracleDao(){
+		
+	}
+	
+	public OracleDao getConneticon{
+		return o
+	}
+}

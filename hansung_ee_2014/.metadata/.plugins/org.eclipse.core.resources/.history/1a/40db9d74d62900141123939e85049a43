@@ -1,0 +1,26 @@
+package Human;
+
+import java.sql.Connection;
+
+public class OracleDao {
+	private final String serverIP="127.0.0.1";
+	private final String portNum="1521";
+	private final String id="templar";
+	private final String pw="1234";
+	
+	Connection conn;
+	static OracleDao obj = new OracleDao();
+	
+	private OracleDao(){
+		
+	}
+	
+	public static OracleDao getInstance(){
+		return obj;
+	}
+	
+	public Connection getConnection(){
+		
+		return null;
+	}
+}

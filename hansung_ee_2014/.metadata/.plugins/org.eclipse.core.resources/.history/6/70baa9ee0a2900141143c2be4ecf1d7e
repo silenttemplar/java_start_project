@@ -1,0 +1,10 @@
+package hansung.ac.kr.j2ee.bbs;
+
+import java.io.InputStream;
+
+public class FileSaveHelper {
+	void save(String fileName, InputStream in){
+		
+	}
+
+}

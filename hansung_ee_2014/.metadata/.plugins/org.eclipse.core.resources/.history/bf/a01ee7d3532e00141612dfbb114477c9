@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주민번호 인증</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	/**
+	 * 대상 : div
+	 * 기능 : 자식 요소가 없는 div 제거
+	 * 함수 : not(), :parent, remove()
+	 */
+	function run() {
+			//자식존재하지 않을 경우
+// 		$(".target").not(":parent").remove();
+			//자식존재하는 경우
+			$(".target").filter(":parent").remove();
+	}
+</script>
+</head>
+<body>
+	주민번호 :
+	<input tyep="text" name="jumin1" maxlength="6" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"/>
+	- <input tyep="text" name="jumin1" maxlength="7" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"/>
+</body>
+</html>

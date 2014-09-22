@@ -1,0 +1,20 @@
+package hansung.ac.kr.j2ee.bbs.db;
+
+import hansung.ac.kr.j2ee.bbs.CommentDTO;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public interface BBS_DaoService {
+	public void insertArticle(BBS_Dto artice) throws SQLException, IOException;
+	public int getArticleNum() throws SQLException, IOException;
+	public ArrayList<BBS_Dto> getArticles(int startRow, int endRow) throws SQLException, IOException;
+	public BBS_Dto getContent(int article_num) throws SQLException, IOException;
+	public int login_check(String id ,String pass) throws SQLException, IOException;
+	public void insert_Reply(BBS_Dto article) throws SQLException, IOException;
+	public void deleteArticle(int aricle_num) throws SQLException, IOException;
+	public void updateArticle(BBS_Dto article) throws SQLException, IOException;
+	public ArrayList<CommentDTO> getComment(int article_num) throws SQLException, IOException;
+	public void insertComment(CommentDTO comment) throws SQLException, IOException;
+}

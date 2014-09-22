@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Select Change Background</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	/*
+	 * 대상 : 
+	 * 기능 : 
+	 * 함수 : 
+	 */
+	function run() {
+
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Change Background</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	/**
+	 * 대상 : div
+	 * 기능 : background 변경 
+	 * 함수 : css();
+	 */
+	function run() {
+		$("#target").css("background","blue");
+	}
+</script>
+</head>
+<body>
+	<div id="target"
+		style="color: rgb(255, 255, 255); 
+		width: 150px;
+		 height: 100px; float: left; 
+		 border: 1px solid rgb(34, 34, 34); 
+		 background-color: rgb(34, 139, 34); 
+		 margin: 10px; padding: 5px;">
+		#target<br />
+	</div>
+	<input type="button" value="run" onclick="run()" />
+</body>
+</html>

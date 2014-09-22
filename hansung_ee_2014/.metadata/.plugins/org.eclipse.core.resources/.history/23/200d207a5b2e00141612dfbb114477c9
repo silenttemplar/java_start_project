@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>동적으로 테이블 행 추가</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[name=btn]").on({
+				click:function(){
+					var arr = new Array();
+					arr[0] = $("input[name=title]").val();
+					arr[1] = $("input[name=content]").val();
+					arr[2] = $("input[name=writer]").val();
+					
+					var tag = "<tr>";
+					
+					for(var i = 0;i<arr.length;i++){
+						tag += "<td>";
+						tag += arr[i];
+						tag += "</td>";
+					}
+					tag += "</tr>";
+					
+					$(tag).appendTo("table");
+					
+					$("input[name=title]").text("");
+					$("input[name=content]").text("");
+					 $("input[name=writer]").text("");
+				}
+		});
+	});
+</script>
+</head>
+<body>
+	제목 : <input type="text" name="title"/><br/>
+	내용 : <input type="text" name="content"/><br/>
+	작성자 : <input type="text" name="writer"/><br/>
+	<input type="button" name="btn" value="테이블 추가"/><br/>
+	<table border="1">
+		<tr>
+			<td>제목</td>
+			<td>내용</td>
+			<td>작성자</td>
+		</tr>
+	</table>
+</body>
+</html>

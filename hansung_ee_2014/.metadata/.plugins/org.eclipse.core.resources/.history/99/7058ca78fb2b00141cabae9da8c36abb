@@ -1,0 +1,12 @@
+/writeForm.bbs=hansung.ac.kr.j2ee.bbs.WriteFormImpl
+/write.bbs=hansung.ac.kr.j2ee.bbs.WriteImpl
+/forward.bbs=hansung.ac.kr.j2ee.bbs.ForwardImpl
+/list.bbs=hansung.ac.kr.j2ee.bbs.ListImpl
+/content.bbs=hansung.ac.kr.j2ee.bbs.ContentImpl
+/login.bbs=hansung.ac.kr.j2ee.bbs.LoginImpl
+/replyForm.bbs=hansung.ac.kr.j2ee.bbs.ReplyFormImpl
+/reply.bbs=hansung.ac.kr.j2ee.bbs.ReplyWriteImpl
+/deleteArticle.bbs=hansung.ac.kr.j2ee.bbs.DeleteArticleImpl
+/updateForm.bbs=hansung.ac.kr.j2ee.bbs.UpdateFormImpl
+/update.bbs=hansung.ac.kr.j2ee.bbs.UpdateArticleImpl
+/download.bbs=hansung.ac.kr.j2ee.bbs.DownLoadImpl

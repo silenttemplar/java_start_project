@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="./jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	function setTag(){
+		val html=$("input[type=text]").val();
+		alert(html);
+		window.opener.appendTo(html);
+		window.close();
+		
+	}
+</script>
+</head>
+<body>
+<div>
+	<input type="text" name="a" class="tag"/>
+</div>
+<input type="button" value="run" onclick="setTag()"/>
+</body>
+</html>

@@ -1,0 +1,21 @@
+package hansung.ac.kr.j2ee.bbs;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class CommentReadImpl implements BBS_Service {
+
+	@Override
+	public String BBS_hansung(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException {
+			System.out.println("CommentReadImpl  실행");
+			
+			
+		return null;
+	}
+
+}
